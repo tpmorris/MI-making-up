@@ -121,10 +121,10 @@ do_analysis <- function(data, method) {
 }
 
 # Setup paraller processing, using all available cores
-daemons(parallel::detectCores())
+daemons(parallel::detectCores(), seed = 1)
 
 # Run B repetitions using purrr::map()
-B <- 10000 
+B <- 10000
 time_start <- Sys.time()
 out <- map(
   .x = seq(B),
@@ -246,3 +246,9 @@ ggsave(
 # Data:
 write_rds(x = outb, file = here("R/estimates.rds"))
 write_rds(x = finres, file = here("R/perf_final.rds"))
+
+# Session info
+sink(file = here("R/session-info.txt"))
+require(devtools)
+devtools::session_info()
+sink()
