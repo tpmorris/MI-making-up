@@ -2,7 +2,7 @@
 
 Simulation code to accompany my [blog post on whether multiple imputation invents information](https://open.substack.com/pub/tpmorris/p/is-multiple-imputation-making-up). The description of the simulation study is in that blog.
 
-Note: code by me is now under "Stata" because @Elessenne contributed R code under "R". He used 10,000 repetitions, which was wise: although I said I was comfortable with the Monte Carlo error after 800 reps, this was WRT the reassurance about MI, and I subsequently undermined myself by saying that I was not sure if differences were just Monte Carlo error.
+Note: code by me is now under "Stata" because [@ellessenne](https://github.com/ellessenne) contributed R code under "R". He used 10,000 repetitions, which was wise: although I said I was comfortable with the Monte Carlo error after 800 reps, this was WRT the reassurance about MI, and I subsequently undermined myself by saying that I was not sure if differences were just Monte Carlo error.
 
 A note on the Stata code: I simulated all the full data in one go and saved it as `sim_data.dta`. For each rep, I then used the relevant chunk of data. Initially I tried to do `mi impute … , by(rep_id)` on `sim_data.dta`, and was pleased with that idea, but Stata hung when it was trying to append all the imputed datasets – shame! So the full dataset is saved in the repo but the imputed datasets are not.
 
